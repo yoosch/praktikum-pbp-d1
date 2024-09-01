@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script>
+        window.onload = function() {
+            generateCaptcha();
+        }
+    </script>
+</head>
+<body>
+    <h1>Form Tambah Produk</h1>
+    <form action="" name="formData" method="" onsubmit="return validateForm()">
+        <table>
+            <tr>
+                <td><label for="nama-produk">Nama Produk</label></td>
+                <td><input type="text" name="nama-produk" id="" minlength="5" maxlength="30"></td>
+            </tr>
+            <tr>
+                <td><label for="deskripsi">Deskripsi</label></td>
+                <td><textarea name="deskripsi" id="" rows="6" cols="20" minlength="5" maxlength="100"></textarea></td>
+            </tr>
+            <tr>
+                <td><label for="kategori">kategori</label></td>
+                <td>
+                    <select name="kategori" id="kategori" onchange="setSubKategori()">
+                        <option value="">--Pilih Kategori--</option>
+                        <option value="baju">Baju</option>
+                        <option value="elektronik">Elektronik</option>
+                        <option value="alat-tulis">Alat Tulis</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="sub-kategori">Sub Kategori</label></td>
+                <td>
+                    <select name="sub-kategori" id="sub-kategori">
+                        <option value="">--Pilih Sub Kategori--</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="harga-satuan">Harga Satuan</label></td>
+                <td><input type="text" name="harga-satuan" id="" style="width: 80px;" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></td>
+            </tr>
+            <tr>
+                <td><label for="grosir">Grosir</label></td>
+                <td>
+                    <input type="radio" name="grosir" value="ya" onclick="isGrosir()">
+                    <label for="">Ya</label> <br />
+                    <input type="radio" name="grosir" value="tidak" onclick="isGrosir()">
+                    <label for="">Tidak</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="harga-grosir">Harga Grosir</label></td>
+                <td><input type="text" name="harga-grosir" id="harga-grosir" style="width: 80px;" disabled onkeypress='return event.charCode >= 48 && event.charCode <= 57'></td>
+            </tr>
+            <tr>
+                <td><label for="jasa-kirim">Jasa kirim</label></td>
+                <td>
+                    <input type="checkbox" id="" name="jasa-kirim" value="">
+                    <label for="jk-1">JNE</label><br>
+                    <input type="checkbox" id="" name="jasa-kirim" value="">
+                    <label for="jk-2">TIKI</label><br>
+                    <input type="checkbox" id="" name="jasa-kirim" value="">
+                    <label for="jk-3">SiCepat</label><br>
+                    <input type="checkbox" id="" name="jasa-kirim" value="">
+                    <label for="jk-4">Ninja Express</label><br>
+                    <input type="checkbox" id="" name="jasa-kirim" value="">
+                    <label for="jk-5">Wahana</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="">Captcha</label></td>
+                <td><input type="text" name="captcha" id="captcha" readonly disabled style="width: 50px;"></td>
+                <td><input type="text" name="input-captcha" id="input-captcha" style="width: 50px; margin-left: -110px;"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" name="" id="" ></td>
+                <td><input type="reset" name="" id="" style="margin-left: -35px;" onclick="setTimeout(generateCaptcha, 50)"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
